@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomart Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0f2ff;
+        }
+
+        .header {
+            background-color: #072645;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .header .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            display: flex;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .header .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .sidebar {
+            background-color: #072645;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar button {
+            background-color:  #072645;
+            color: white;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover, .sidebar button.active {
+            background-color: #072645;
+        }
+
+        .sidebar .bottom-buttons {
+            padding-bottom: 20px;
+        }
+
+        .sidebar .bottom-buttons button {
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .quick-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .quick-stat-card {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .quick-stat-card img {
+            display: block;
+            margin: 0 auto 10px auto;
+            width: 30px;
+        }
+
+        .quick-stat-card:last-child {
+            margin-right: 0;
+        }
+
+        .sales-overview {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .charts {
+            display: flex;
+        }
+
+        .chart {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .chart:last-child {
+            margin-right: 0;
+        }
+
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom-section .target-actual, .bottom-section .top-products {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .bottom-section .top-products ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bottom-section .top-products li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .bottom-section .top-products li img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .bottom-section .target-actual:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (using EJS partials) -->
+    <%- include('partials/header', { userName: 'Asad', email: 'asaddlw@gmail.com', profilePic: 'hmm.jpeg' }) %>
+
+    <div class="sidebar">
+        <div class="bottom-buttons">
+            <a href="profile.html">
+                <img alt="User Image" src="hmm.jpeg" style="width:50px;height:50px;margin-left:15px"/>
+                <button>Profile</button>
+            </a>
+            <button>Settings</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="quick-stats"></div>
+
+        <div class="sales-overview">
+            <h2>Sales Overview</h2>
+            <div class="charts">
+                <div class="chart">
+                    <img src="dasss.jpeg" alt="Sales Chart 1">
+                </div>
+                <div class="chart">
+                    <img src="salessss.png" alt="Sales Chart 2" style="height:400px;width:400px">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="target-actual">
+                <h2>Actual Vs. Target Values (Q1-Q4)</h2>
+                <img src="Sales Dashboard PowerPoint Template.jpeg" alt="Target Vs Actual Chart">
+            </div>
+            <div class="top-products">
+                <h2>Top Selling Products</h2>
+                <ul>
+                    <li><img src="cober.jpeg" alt="Carry Bag">Carry Bag</li>
+                    <li><img src="boooook.jpeg" alt="Books">Books</li>
+                    <li><img src="sung.jpeg" alt="Sunglasses">Sunglasses</li>
+                    <li><img src="ankloet.jpeg" alt="Wrist Anklet">Wrist Anklet</li>
+                    <li><img src="mosuee.png" alt="Mouse">Mouse</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (using Handlebars template) -->
+    <script id="footer-template" type="text/x-handlebars-template">
+        <footer>
+            <p>© {{year}} Ecomart. All rights reserved.</p>
+        </footer>
+    </script>
+
+    <script>
+        // Initialize Handlebars template for footer
+        const footerTemplate = Handlebars.compile(document.getElementById("footer-template").innerHTML);
+        const footerHTML = footerTemplate({ year: new Date().getFullYear() });
+        document.body.insertAdjacentHTML("beforeend", footerHTML);
+
+        // Dashboard initialization script
+        class Dashboard {
+            constructor() {
+                this.initSidebar();
+                this.initQuickStats();
+            }
+
+            initSidebar() {
+                const buttons = document.querySelectorAll(".sidebar button");
+                buttons.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        buttons.forEach((btn) => btn.classList.remove("active"));
+                        button.classList.add("active");
+                    });
+                });
+            }
+
+            initQuickStats() {
+                this.quickStats = [
+                    new QuickStat("active.jpeg", "Active Listings", 12),
+                    new QuickStat("feedback.jpeg", "Draft Ratings", 33),
+                    new QuickStat("7.jpeg", "Expired Listings", 2),
+                    new QuickStat("soldout.jpeg", "Sold Out", 7),
+                ];
+            }
+        }
+
+        class QuickStat {
+            constructor(image, title, count) {
+                this.image = image;
+                this.title = title;
+                this.count = count;
+                this.render();
+            }
+
+            render() {
+                const container = document.createElement("div");
+                container.className = "quick-stat-card";
+                container.innerHTML = `
+                    <img src="${this.image}" alt="${this.title}">
+                    <p>${this.title}</p>
+                    <p>${this.count}</p>
+                `;
+                document.querySelector(".quick-stats").appendChild(container);
+            }
+        }
+    </script>
+
+</body>
+</html>

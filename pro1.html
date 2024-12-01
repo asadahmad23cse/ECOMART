@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOMART - Smart choice for smart students</title>
+    <style>
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E6F3FF;
+        }
+        header {
+            background-color: #0E1469;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .logo-text {
+            margin-left: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            margin-right: 40px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 80px;
+            font-size: 18px;
+        }
+        .auth-buttons a {
+            text-decoration: none;
+        }
+        .auth-buttons button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            margin-left: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .login {
+            background-color: #4EB9B5;
+        }
+        .login:hover {
+            background-color: #a70daf;
+        }
+        .signup {
+            background-color: #4EB9B5;
+        }
+        .signup:hover {
+            background-color: #a70daf;
+        }
+        main {
+            display: flex;
+            padding: 4rem 2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-content {
+            text-align: center;
+            flex: 1;
+        }
+        h1 {
+            font-size: 65px;
+            margin-inline: 50px;
+            color: black;
+        }
+        h2 {
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-bottom: 2rem;
+            color: #333;
+            font-weight: normal;
+        }
+        .cta-button {
+            background-color: #4EB9B5;
+            color: black;
+            border: none;
+            padding: 20px 32px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: rgb(6, 141, 156);
+        }
+        .hero-image {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img id="logoImage" alt="ECOMART Logo">
+            <span id="logoText" class="logo-text"></span>
+        </div>
+        <nav id="navLinks"></nav>
+        <div class="auth-buttons">
+            <a id="loginLink" href=""><button class="login"></button></a>
+            <a id="signupLink" href=""><button class="signup"></button></a>
+        </div>
+    </header>
+    <main>
+        <div class="hero-content">
+            <h1 id="mainHeading"></h1>
+            <h2 id="subHeading"></h2>
+            <a id="ctaButton" class="cta-button"></a>
+        </div>
+        <div class="hero-image">
+            <img id="heroImage" alt="eco" style="height:450px;width:450px">
+        </div>
+    </main>
+
+    <script>
+        // Define the ConfigLoader class
+        class ConfigLoader {
+            constructor(configUrl) {
+                this.configUrl = configUrl;
+            }
+
+            async fetchConfig() {
+                try {
+                    const response = await fetch(this.configUrl);
+                    return await response.json();
+                } catch (error) {
+                    console.error("Error loading configuration:", error);
+                    return null;
+                }
+            }
+        }
+
+        // Define the UIManager class
+        class UIManager {
+            constructor(config) {
+                this.config = config;
+            }
+
+            updateHeader() {
+                document.getElementById('logoImage').src = this.config.logo;
+                document.getElementById('logoText').textContent = this.config.logoText;
+
+                const navLinksContainer = document.getElementById('navLinks');
+                this.config.navLinks.forEach(link => {
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.textContent = link.name;
+                    navLinksContainer.appendChild(anchor);
+                });
+
+                document.querySelector('.login').textContent = this.config.authLinks.login.text;
+                document.querySelector('.signup').textContent = this.config.authLinks.signup.text;
+                document.getElementById('loginLink').href = this.config.authLinks.login.url;
+                document.getElementById('signupLink').href = this.config.authLinks.signup.url;
+            }
+
+            updateMainContent() {
+                document.getElementById('mainHeading').textContent = this.config.mainHeading;
+                document.getElementById('subHeading').textContent = this.config.subHeading;
+                document.getElementById('ctaButton').textContent = this.config.ctaButton.text;
+                document.getElementById('ctaButton').href = this.config.ctaButton.url;
+                document.getElementById('heroImage').src = this.config.heroImage;
+            }
+
+            setupButtonHoverEffects() {
+                const loginButton = document.querySelector(".login");
+                const signupButton = document.querySelector(".signup");
+
+                loginButton.addEventListener("mouseover", () => {
+                    loginButton.style.backgroundColor = "#a70daf";
+                });
+                loginButton.addEventListener("mouseout", () => {
+                    loginButton.style.backgroundColor = "#4EB9B5";
+                });
+
+                signupButton.addEventListener("mouseover", () => {
+                    signupButton.style.backgroundColor = "#a70daf";
+                });
+                signupButton.addEventListener("mouseout", () => {
+                    signupButton.style.backgroundColor = "#4EB9B5";
+                });
+            }
+        }
+
+        // Main execution logic
+        async function initializePage() {
+            const configLoader = new ConfigLoader('pro1.json');
+            const config = await configLoader.fetchConfig();
+
+            if (config) {
+                const uiManager = new UIManager(config);
+                uiManager.updateHeader();
+                uiManager.updateMainContent();
+                uiManager.setupButtonHoverEffects();
+
+                window.onload = () => {
+                    alert("Welcome to ECOMART - Smart choice for smart students!");
+                };
+            }
+        }
+
+        // Run the initialization
+        initializePage();
+    </script>
+</body>
+</html>

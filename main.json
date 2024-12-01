@@ -1,0 +1,34 @@
+{
+    "products": [
+      {
+        "name": "Eco-Friendly Product",
+        "price": 29.99,
+        "features": [
+          "Lightweight",
+          "Durable",
+          "Water Resistant",
+          "Eco-Friendly"
+        ]
+      },
+      {
+        "name": "Sustainable Backpack",
+        "price": 49.99,
+        "features": [
+          "Recycled Materials",
+          "Spacious",
+          "Comfortable Straps",
+          "Water Resistant"
+        ]
+      },
+      {
+        "name": "Biodegradable Phone Case",
+        "price": 19.99,
+        "features": [
+          "Eco-Friendly",
+          "Shock Absorbent",
+          "Lightweight",
+          "Stylish Design"
+        ]
+      }
+    ]
+  }

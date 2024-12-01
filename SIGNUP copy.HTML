@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E6F3FF;
+        }
+
+        header {
+            background-color: #0E1469;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-arrow {
+            margin-right: 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav {
+            margin-left: 470px;
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-start;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 100px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 64px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 45px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #BFE6FF;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        .name-fields {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .name-fields input {
+            flex: 1;
+        }
+
+        .form-group input:hover {
+            background-color: #0E1469;
+            color: white;
+        }
+
+        .google-signup {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 20px;
+            background-color: white;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .google-logo {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="back-arrow">←</div>
+        <nav>
+            <a href="main1.html">Home</a>
+            <a href="services copy.html">Contact us</a>
+            <a href="services copy.html">About us</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="logo">
+            <div class="logo-image">
+                <img src="ak.jpeg" style="height:150px;width:150px">
+            </div>
+            <div class="logo-text">Ecomart</div>
+        </div>
+
+        <h1>SIGN UP</h1>
+        <form id="signupForm">
+            <div class="form-group name-fields">
+                <input type="text" id="firstName" placeholder="First name" required>
+                <input type="text" id="lastName" placeholder="Last name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="EMAIL" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phoneNumber" placeholder="PHONE NUMBER" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="PASSWORD" required>
+            </div>
+            <button type="submit" class="google-signup">Sign Up</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ firstName, lastName, email, phoneNumber, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Sign up successful');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Sign up failed: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error during sign up:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+    </script>
+
+</body>
+</html>

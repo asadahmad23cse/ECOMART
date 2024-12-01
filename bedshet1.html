@@ -1,0 +1,305 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecomart - Lane Linen Bed Sheet Set</title>
+        <style>
+            body {
+                --navy: #001a3d;
+                --light-blue: #d2ebf7;
+                --white: #ffffff;
+                --hover-blue: #0052a3;
+            }
+            
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: var(--light-blue);
+                color: var(--navy);
+            }
+            
+            header {
+                background-color: var(--navy);
+                color: var(--white);
+                padding: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+            }
+            
+            .logo img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+            }
+            
+            .search-bar {
+                flex-grow: 1;
+                margin: 0 2rem;
+            }
+            
+            .search-bar input {
+                width: 100%;
+                padding: 0.5rem;
+                border-radius: 20px;
+                border: 1px solid #ccc;
+                transition: border-color 0.3s;
+            }
+            
+            .search-bar input:focus {
+                border-color: var(--hover-blue);
+            }
+            
+            .user-profile {
+                display: flex;
+                align-items: center;
+            }
+            
+            .user-profile img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            
+            .container {
+                display: flex;
+                padding: 2rem;
+            }
+            
+            .product-details {
+                flex: 2;
+                margin-right: 2rem;
+            }
+            
+            .purchase-options {
+                flex: 1;
+                background-color: var(--white);
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            
+            .product-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+            }
+            
+            .product-price {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: var(--hover-blue);
+            }
+            
+            .product-image {
+                width: 100%;
+                margin-bottom: 1rem;
+                transition: transform 0.3s;
+            }
+            
+            .product-image:hover {
+                transform: scale(1.05);
+            }
+            
+            .image-gallery {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+            }
+            
+            .image-gallery img {
+                width: 22%;
+                border: 1px solid #ccc;
+                cursor: pointer;
+                transition: transform 0.3s, border-color 0.3s;
+            }
+            
+            .image-gallery img:hover {
+                transform: scale(1.05);
+                border-color: var(--hover-blue);
+            }
+            
+            .color-options {
+                display: flex;
+                margin-bottom: 1rem;
+            }
+            
+            .color-option {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                transition: transform 0.3s;
+            }
+            
+            .color-option:hover {
+                transform: scale(1.1);
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                padding: 0.75rem;
+                margin-bottom: 0.5rem;
+                background-color: var(--navy);
+                color: var(--white);
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+            
+            .btn:hover {
+                background-color: var(--hover-blue);
+                transform: scale(1.02);
+            }
+            
+            .about-product {
+                margin-top: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <script>  
+            document.addEventListener("DOMContentLoaded", function() {  
+                const mainImage = document.querySelector(".product-image");  
+                const thumbnails = document.querySelectorAll(".image-gallery img");  
+                const colorOptions = document.querySelectorAll(".color-option");  
+                const quantitySelect = document.getElementById("quantity");  
+                const buttons = document.querySelectorAll(".btn");  
+        
+                // Change main image on thumbnail click  
+                thumbnails.forEach(thumbnail => {  
+                    thumbnail.addEventListener("click", () => {  
+                        mainImage.src = thumbnail.src;  
+                        updateThumbnailBorders(thumbnail);  
+                    });  
+                });  
+        
+                // Color options selection  
+                colorOptions.forEach(option => {  
+                    option.addEventListener("click", () => {  
+                        updateColorBorders(option);  
+                    });  
+                });  
+        
+                // Handle button clicks for Add to Cart and Buy Now  
+                buttons.forEach((button, index) => {  
+                    button.addEventListener("click", () => handleButtonClick(button, index));  
+                });  
+        
+                // Highlight search bar on focus  
+                const searchInput = document.querySelector(".search-bar input");  
+                searchInput.addEventListener("focus", () => searchInput.style.outline = "2px solid var(--hover-blue)");  
+                searchInput.addEventListener("blur", () => searchInput.style.outline = "none");  
+        
+                function updateThumbnailBorders(selectedThumbnail) {  
+                    thumbnails.forEach(th => th.style.border = "1px solid #ccc");  
+                    selectedThumbnail.style.border = "2px solid var(--hover-blue)";  
+                }  
+        
+                function updateColorBorders(selectedOption) {  
+                    colorOptions.forEach(opt => opt.style.border = "none");  
+                    selectedOption.style.border = "2px solid var(--hover-blue)";  
+                }  
+        
+                function handleButtonClick(button, index) {  
+                    const quantity = quantitySelect.value;  
+                    const message = index === 0   
+                        ? `Added ${quantity} item(s) to cart.`   
+                        : `Proceeding to checkout with ${quantity} item(s).`;  
+                    alert(message);  
+                    animateButton(button);  
+                }  
+        
+                function animateButton(button) {  
+                    button.style.transform = "scale(0.95)";  
+                    setTimeout(() => button.style.transform = "scale(1)", 100);  
+                }  
+            });  
+        </script>
+        
+        <header>
+            <div class="logo">
+                <img src="ak.jpeg" alt="Ecomart logo">
+                ECOMART
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="user-profile">
+                <img src="hmm.jpeg" alt="User profile">
+                <span>Asad<br>asad@gmail.com</span> 
+            </div>
+        </header>
+        <div class="container">
+            <div class="product-details">
+                <div class="product-title">Lane Linen 100% Organic Cotton Double Bed Sheet Set</div>
+                <div class="product-subtitle">Breathable Fabric | Sustainable & Eco-Friendly (Chevron Cool Blue, Double)</div>
+                <div class="product-price">₹ 1200</div>
+                <p>Inclusive of all taxes | EMI starts at ₹141.94 EMI options ▼</p>
+                <img src="bed1.jpeg" alt="Bed Sheet Set" class="product-image" style="height:400px;width:500px">
+                <div class="image-gallery">
+                    <img src="bed1.jpeg" alt="Image 1">
+                    <img src="bed.jpeg"alt="Image 2">
+                    <img src="Silk sheets.jpeg" alt="Image 3">
+                    <img src="Silk Sheet Set, Sage Green - Twin.jpeg" alt="Image 4">
+                    <img src="Lanest Housing King Sheet Set, 2400 Thread Count Soft Deep Pocket Microfiber Sheets, 4 Pieces Black Bedding Sheets & Pillowcases.jpeg" alt="Image 4">
+                </div>
+                <div class="color-options">
+                    <div class="color-option" style="background-color: black;"></div>
+                    <div class="color-option" style="background-color: green;"></div>
+                    <div class="color-option" style="background-color: red;"></div>
+                    <div class="color-option" style="background-color: blue;"></div>
+                    <div class="color-option" style="background-color: purple;"></div>
+                    <div class="color-option" style="background-color: yellow;"></div>
+                
+                
+                </div>
+                <div class="product-specs">
+                    <p>Size: Double</p>
+                    <p>Material: Cotton</p>
+                    <p>Color: White</p>
+                    <p>Brand: Lane Linen Product</p>
+                    <p>Dimensions: 2.54 L x 2.24 W meters</p>
+                </div>
+                <iframe width="806" height="453" src="https://www.youtube.com/embed/pIeE0m7J9C4" title="Signature Bedsheet | Kareena Kapoor Best TVC Ad 2020 - Now on Flipkart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                <div class="about-product" style="width:1200px;">
+                    <h2>About this product</h2>
+                    <p>Material Quality: Bedsheets Lane Linen products are crafted from high-quality, breathable linen fabric, known for its durability and softness. These bed sheets ensure a comfortable sleep experience in all seasons.</p>
+                    <p>Aesthetic Appeal: The bedsheets feature a beautiful pattern design with a variety of colors, making them a stylish addition to any bedroom decor. Their natural texture adds a touch of sophistication and warmth to the space.</p>
+                    <p>Durability: The high-quality linen bedsheets from Bedsheets Lane are machine washable and become softer with each wash, enhancing their comfort and longevity. They resist fading and maintain their color over time, making them low maintenance.</p>
+                    <p>Health Benefits: Linen is hypoallergenic and naturally resistant to mold and bacteria, making it an excellent choice for those with allergies or sensitive skin. Its moisture-wicking properties help keep the sleeping environment dry and comfortable.</p>
+                </div>
+            </div>
+            <div class="purchase-options" style="width:70px;height:400px">
+                <div class="product-price">₹ 1200</div>
+                <p>FREE Delivery. Order within 30 mins</p>
+                <label for="quantity">Quantity:</label>
+                <br>
+                <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button style="border-radius:50px"class="btn">Add to Cart</button>
+                <button style="border-radius:50px"class="btn">Buy Now</button>
+            </div>
+        </div>
+    </body>
+    </html>

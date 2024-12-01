@@ -1,0 +1,36 @@
+{
+    "product": {
+        "title": "Lane Linen 100% Organic Cotton Double Bed Sheet Set",
+        "subtitle": "Breathable Fabric | Sustainable & Eco-Friendly (Chevron Cool Blue, Double)",
+        "price": "₹ 1200",
+        "images": [
+            "bed1.jpeg",
+            "bed.jpeg",
+            "Silk sheets.jpeg",
+            "Silk Sheet Set, Sage Green - Twin.jpeg",
+            "Lanest Housing King Sheet Set, 2400 Thread Count Soft Deep Pocket Microfiber Sheets, 4 Pieces Black Bedding Sheets & Pillowcases.jpeg"
+        ],
+        "colors": [
+            { "name": "Black", "code": "#000000" },
+            { "name": "Green", "code": "#008000" },
+            { "name": "Red", "code": "#FF0000" },
+            { "name": "Blue", "code": "#0000FF" },
+            { "name": "Purple", "code": "#800080" },
+            { "name": "Yellow", "code": "#FFFF00" }
+        ],
+        "specs": {
+            "size": "Double",
+            "material": "Cotton",
+            "color": "White",
+            "brand": "Lane Linen",
+            "dimensions": "2.54 L x 2.24 W meters"
+        },
+        "about": [
+            "Material Quality: Bedsheets Lane Linen products are crafted from high-quality, breathable linen fabric, known for its durability and softness. These bed sheets ensure a comfortable sleep experience in all seasons.",
+            "Aesthetic Appeal: The bedsheets feature a beautiful pattern design with a variety of colors, making them a stylish addition to any bedroom decor. Their natural texture adds a touch of sophistication and warmth to the space.",
+            "Durability: The high-quality linen bedsheets from Bedsheets Lane are machine washable and become softer with each wash, enhancing their comfort and longevity. They resist fading and maintain their color over time, making them low maintenance.",
+            "Health Benefits: Linen is hypoallergenic and naturally resistant to mold and bacteria, making it an excellent choice for those with allergies or sensitive skin. Its moisture-wicking properties help keep the sleeping environment dry and comfortable."
+        ],
+        "video": "https://www.youtube.com/embed/pIeE0m7J9C4"
+    }
+}

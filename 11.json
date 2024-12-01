@@ -1,0 +1,30 @@
+{
+       // Display a welcome message when the page loads
+       window.onload = function() {
+        alert("Welcome to ECOMART - Smart choice for smart students!");
+    }
+
+    // Event listener for the "Let's Explore" button
+    document.getElementById("exploreButton").addEventListener("click", function() {
+        alert("Exploring ECOMART!");
+        window.location.href = "file:///C:/Users/Asad%20Ahmad/.vscode/.vscode/.vscode/.vscode/.vscode/.vscode/MARTT/MARKET.HTML"; // Redirect to the Home page
+    });
+
+    // Dynamic color change on the Login and Signup buttons
+    const loginButton = document.querySelector(".login");
+    const signupButton = document.querySelector(".signup");
+
+    loginButton.addEventListener("mouseover", function() {
+        loginButton.style.backgroundColor = "#a70daf";
+    });
+    loginButton.addEventListener("mouseout", function() {
+        loginButton.style.backgroundColor = "#4EB9B5";
+    });
+
+    signupButton.addEventListener("mouseover", function() {
+        signupButton.style.backgroundColor = "#a70daf";
+    });
+    signupButton.addEventListener("mouseout", function() {
+        signupButton.style.backgroundColor = "#4EB9B5";
+    });
+}

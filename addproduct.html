@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomart - Add New Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #072b4f;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .header .profile {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .header .profile img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+
+        h1 {
+            color: #004080;
+        }
+
+        .back-btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn img {
+            margin-right: 10px;
+        }
+
+        .form-section {
+            background-color: #d3e3f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-section input, .form-section textarea, .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-section img {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        .form-section .images {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-section .images .browse-more {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #004080;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .actions .discard-btn {
+            background-color: #004080;
+            color: white;
+        }
+
+        .actions .add-btn {
+            background-color: #0099ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="ak.jpeg" alt="Ecomart Logo" width="60" height="60">
+            <h2>Ecomart</h2>
+        </div>
+        <div class="profile">
+            <img src="hmm.jpeg" alt="Asad" width="40" height="40">
+            <div>
+                <p>Asad</p>
+                <p>asad@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <button class="back-btn">
+            <img src="heafphone.jpeg" alt="Back" width="20" height="20">
+            Add New Product
+        </button>
+
+        <form id="productForm">
+            <div class="form-section">
+                <h3>Description</h3>
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" placeholder="Enter product name">
+
+                <label for="business-desc">Business Description</label>
+                <textarea id="business-desc" rows="4" placeholder="Enter business description"></textarea>
+            </div>
+
+            <div class="form-section">
+                <h3>Category</h3>
+                <label for="product-category">Product Category</label>
+                <input type="text" id="product-category" placeholder="Enter product category">
+
+                <label for="product-category-secondary">Product Category (Secondary)</label>
+                <input type="text" id="product-category-secondary" placeholder="Enter secondary category">
+            </div>
+
+            <div class="form-section">
+                <h3>Inventory</h3>
+                <label for="quantity">Quantity</label>
+                <input type="text" id="quantity" placeholder="Enter quantity">
+
+                <label for="barcode">Bar Code Number</label>
+                <input type="text" id="barcode" placeholder="Enter barcode number">
+            </div>
+
+            <div class="form-section">
+                <h3>Product Images</h3>
+                <div class="images">
+                    <img src="mosuee.png" alt="Headphone" style="height:100px">
+                    <img src="heafphone.jpeg" alt="Headphone" style="height:100px">
+                    <img src="Silk sheets.jpeg" alt="Headphone" style="height:100px">
+                    <span class="browse-more">→ Browse more....</span>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Shipping and Delivery</h3>
+                <label for="weight">Item Weight</label>
+                <input type="text" id="weight" placeholder="Enter item weight">
+
+                <label for="package-size">Package Size (L x B x W)</label>
+                <input type="text" id="package-size" placeholder="Enter package size">
+            </div>
+
+            <div class="form-section">
+                <h3>Price</h3>
+                <label for="price">Price</label>
+                <input type="text" id="price" placeholder="Enter price">
+
+                <label for="compare-price">Compare Price</label>
+                <input type="text" id="compare-price" placeholder="Enter compare price">
+            </div>
+
+            <div class="actions">
+                <button type="button" class="discard-btn">Discard</button>
+                <button type="submit" class="add-btn">Add Product</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const API_URL = "http://localhost:5000/api/products"; // Backend API URL
+
+        // Handle form submission to add a new product
+        document.getElementById('productForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const product = {
+                name: document.getElementById('product-name').value,
+                description: document.getElementById('business-desc').value,
+                category: document.getElementById('product-category').value,
+                secondaryCategory: document.getElementById('product-category-secondary').value,
+                quantity: document.getElementById('quantity').value,
+                barcode: document.getElementById('barcode').value,
+                weight: document.getElementById('weight').value,
+                packageSize: document.getElementById('package-size').value,
+                price: document.getElementById('price').value,
+                comparePrice: document.getElementById('compare-price').value,
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(product),
+                });
+
+                if (response.ok) {
+                    alert('Product added successfully!');
+                    document.getElementById('productForm').reset();
+                } else {
+                    alert('Failed to add product.');
+                }
+            } catch (error) {
+                console.error('Error adding product:', error);
+                alert('Error adding product.');
+            }
+        });
+    </script>
+</body>
+</html>

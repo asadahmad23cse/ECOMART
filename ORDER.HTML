@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management Dashboard</title>
+    <style>
+        body {
+            --primary-color: #1a237e;
+            --secondary-color: #e3f2fd;
+            --completed-color: #4caf50;
+            --not-completed-color: #f44336;
+            --text-color: #333;
+            --sidebar-width: 250px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            display: flex;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--primary-color);
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .sidebar-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-button:hover, .sidebar-button.active {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .main-panel {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .completed, .received {
+            background-color: var(--completed-color);
+        }
+
+        .not-completed, .not-received {
+            background-color: var(--not-completed-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">  
+        <a href="dash.html"><button class="sidebar-button">Dashboard</button></a>  
+        <a href="SELL.HTML"><button class="sidebar-button">Sell</button></a>  
+        <a href="orderdetails.html"><button class="sidebar-button">Customers</button></a>  
+        <a href="pro2.html"><button class="sidebar-button">Marketplace</button></a>  
+        <a href="orders.html"><button class="sidebar-button active">Orders</button></a>  
+        <a href="help.html"><button class="sidebar-button">Help</button></a>  
+        <a href="orderdetails.html"><button class="sidebar-button">Payment</button></a>  
+    </div>
+    <div class="main-panel">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Delivery Status</th>
+                    <th>Ordered Product</th>
+                    <th>Quantity</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>  
+                    <td><a href="orderdetails.html">Order 1001</a></td>  
+                    <td><span class="status completed">Completed</span></td>  
+                    <td>Headphone J1</td>  
+                    <td>2</td>  
+                    <td><span class="status received">Received</span></td>  
+                </tr>
+                <tr>
+                    <td><a href="orderdetails.html">Order 1002</a></td> 
+                    <td><span class="status completed">Completed</span></td>
+                    <td>Red Gear Mouse</td>
+                    <td>2</td>
+                    <td><span class="status received">Received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1003</td>
+                    <td><span class="status not-completed">Not completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status received">Received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1004</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status not-received">Not received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1001</td>
+                    <td><span class="status not-completed">Not completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status received">Received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1005</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status received">Received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1006</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status received">Received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1007</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status not-received">Not received</span></td>
+                </tr>
+                <tr>
+                    <td>Order 1007</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>Headphone J1</td>
+                    <td>2</td>
+                    <td><span class="status received">Received</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

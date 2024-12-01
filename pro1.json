@@ -1,0 +1,17 @@
+{
+    "logo": "ak.jpeg",
+    "logoText": "Ecomart",
+    "navLinks": [
+        { "name": "Home", "url": "SIGNUP copy.HTML" },
+        { "name": "Contact us", "url": "services copy.html" },
+        { "name": "About us", "url": "services copy.html" }
+    ],
+    "authLinks": {
+        "login": { "text": "LOGIN", "url": "LOGINPAGE copy.HTML" },
+        "signup": { "text": "SIGN UP", "url": "SIGNUP copy.HTML" }
+    },
+    "mainHeading": "ECOMART",
+    "subHeading": "Smart choice for smart students",
+    "ctaButton": { "text": "LET'S EXPLORE", "url": "pro2.html" },
+    "heroImage": "ecopaggeee.png"
+}

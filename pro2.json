@@ -1,0 +1,34 @@
+{
+    "sidebar": [
+      {"name": "DASHBOARD", "href":"dash.html"},
+      {"name": "SELL", "href": "SELL.html"},
+      {"name": "CUSTOMERS", "href": "#"},
+      {"name": "MARKETPLACE", "href": "#"},
+      {"name": "ORDERS", "href": "ORDER.html"},
+      {"name": "HELP", "href": "help.html"},
+      {"name": "PAYMENT", "href": "orderdetails.html"}
+    ],
+    "gridItems": [
+      {"alt": "Laptop", "src": "lapppp.jpeg", "name": "Laptop"},
+      {"alt": "Formal suits", "src": "fromals.jpeg", "name": "Formal suits"},
+      {"alt": "Shoes", "src": "shoess.jpeg", "name": "Shoes"},
+      {"alt": "Powerbank and charger", "src": "power.jpeg", "name": "Powerbank and charger"},
+      {"alt": "Lights", "src": "lightsss.jpeg", "name": "Lights"},
+      {"alt": "Books", "src": "boooook.jpeg", "name": "Books"},
+      {"alt": "Bedsheets", "src": "Super Soft 250 TC Microfibre Reversible Plain Duvet Cover Set.jpeg", "name": "Bedsheets", "href":"pro3.html"},
+      {"alt": "Laptop Covers", "src": "cober.jpeg", "name": "Laptop Covers"},
+      {"alt": "Carry Bag", "src": "basg.jpeg", "name": "Carry Bag"},
+      {"alt": "Chair with Tables", "src": "chaitatbale.jpeg", "name": "Chair with Tables"},
+      {"alt": "Handbags", "src": "handbag.jpeg", "name": "Handbags"},
+      {"alt": "Headphones", "src": "heafphone.jpeg", "name": "Headphones"},
+      {"alt": "Mouse", "src": "mosuee.png", "name": "Mouse"},
+      {"alt": "Highlighters and pens", "src": "highlitet.jpeg", "name": "Highlighters and pens"},
+      {"alt": "Pillows and Cover", "src": "pillow.jpeg", "name": "Pillows and Cover"},
+      {"alt": "Anklet", "src": "ankloet.jpeg", "name": "Anklet"},
+      {"alt": "Bottle", "src": "botlee.jpeg", "name": "Bottle"},
+      {"alt": "Sunglasses", "src": "sung.jpeg", "name": "Sunglasses"},
+      {"alt": "Earbuds", "src": "earbufsds.jpeg", "name": "Earbuds"},
+      {"alt": "Mousepad", "src": "Mousepad Hyperx Fury Pro Hx Mpfs L Preto.jpeg", "name": "Mousepad"}
+    ]
+  }
+  

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomart - Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #001a3d;
+            color: #333;
+        }
+        header {
+            background-color: #001a3d;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        main {
+            padding: 2rem;
+        }
+        .order-card {
+            background-color: #d2ebf7;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .order-info img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .order-actions button {
+            padding: 0.5rem 1rem;
+            margin-left: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .status-btn {
+            background-color: #e0e0e0;
+        }
+        .save-btn {
+            background-color: white;
+            color: #4a90e2;
+        }
+        .order-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        .customer, .payment {
+            flex: 1;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4a90e2;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        .total-row {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ecomart</div>
+        <div class="user-profile">
+            <img src="hmm.jpeg" alt="User profile">
+            <span>asad@gmail.com</span>
+        </div>
+    </header>
+    <main>
+        <div class="order-card">
+            <div class="order-header">
+                <div class="order-info">
+                    <img src="ak.jpeg"alt="Ecomart logo">
+                    <div>
+                        <p>Fri, 2 Sept, 2023, 17:34 pm</p>
+                        <p>#ID 1003</p>
+                    </div>
+                </div>
+                <div class="order-actions">
+                    <button class="status-btn">Status ▼</button>
+                    <button class="save-btn">Save</button>
+                </div>
+            </div>
+            <div class="order-details">
+                <div class="customer">
+                    <span class="icon"></span>
+                    <h3>Customer</h3>
+                    <p>Asad</p>
+                    <p>asad@gmail.com</p>
+                    <p>+91 123 098 745</p>
+                    <a href="profile.html">View Profile</a>
+                </div>
+                <div class="payment">
+                    <span class="icon"></span>
+                    <h3>Payment</h3>
+                    <p>Shipping: Ekart express</p>
+                    <p>Payment Gateway: Mastercard</p>
+                    <p>Status: Successful ↓</p>
+                    <p>Mastercard **** 2357</p>
+                    <p>Business/Mastercard</p>
+                    <p>+91 123 098 745</p>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order Details</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Headphone V2</td>
+                        <td>₹1200</td>
+                        <td>4</td>
+                        <td>₹4800</td>
+                    </tr>
+                    <tr>
+                        <td>Red Gear Mouse</td>
+                        <td>₹575</td>
+                        <td>1</td>
+                        <td>₹575</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3">Sub Total</td>
+                        <td>₹5375</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Shipping Cost</td>
+                        <td>₹43.5</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3">Total</td>
+                        <td>₹5418.5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

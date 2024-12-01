@@ -1,0 +1,136 @@
+<html>
+ <head>
+  <title>
+   Ecomart Payment
+  </title>
+  <style>
+   body {
+            background-color: #d4f1f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #0a0a45;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .payment-option:last-child {
+            border-bottom: none;
+        }
+        .payment-option input[type="radio"] {
+            margin-right: 20px;
+            width: 20px;
+            height: 20px;
+            accent-color: #0a0a45;
+        }
+        .payment-option label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .upi-input {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .upi-input input[type="text"] {
+            margin-left: 20px;
+            padding: 5px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .cancel-button {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .cancel-button button {
+            background-color: #d3d3d3;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="header">
+    <img alt="Ecomart logo" height="50" src="ak.jpeg" width="50"/>
+    <h1>
+     Ecomart
+    </h1>
+   </div>
+   <div class="payment-option">
+    <input id="credit-card" name="payment-method" type="radio"/>
+    <label for="credit-card">
+     Credit Card
+    </label>
+   </div>
+   <div class="payment-option">
+    <input id="debit-card" name="payment-method" type="radio"/>
+    <label for="debit-card">
+     Debit Card
+    </label>
+   </div>
+   <div class="payment-option">
+    <input id="net-banking" name="payment-method" type="radio"/>
+    <label for="net-banking">
+     Net Banking
+    </label>
+   </div>
+   <div class="payment-option">
+    <input id="cash-on-delivery" name="payment-method" type="radio"/>
+    <label for="cash-on-delivery">
+     Cash On Delivery
+    </label>
+   </div>
+   <div class="upi-input">
+    <input id="upi" name="payment-method" type="radio"/>
+    <label for="upi">
+     UPI
+    </label>
+    <input placeholder="abc@someone" type="text"/>
+   </div>
+   <div class="cancel-button">
+    <button>
+     Cancel Payment
+    </button>
+   </div>
+  </div>
+ </body>
+</html>

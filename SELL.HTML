@@ -1,0 +1,315 @@
+<html></html>
+    <head>
+    <title>
+    ECOMART Dashboard
+    </title>
+    <style>
+    body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #d1f0ff;
+            }
+            .sidebar {
+                width: 200px;
+                height: 100vh;
+                background-color: #1a237e;
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 5px;
+                
+            }
+            .sidebar img {
+                width: 30px;
+                margin-bottom: 10px;
+                
+            }
+            .sidebar a {
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+                padding: 20px 10px;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+            .sidebar a:hover {
+                background-color: #0a124b;
+                height: 2vh;
+                width: 150px;
+
+            }
+            .sidebar a.active {
+                background-color: #0a124b ;
+                margin-top: 0px;
+            }
+            .header {
+                margin-left: 200px;
+                padding: 20px;
+                background-color:#0a124b;
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header .search-bar {
+                width: 300px;
+                padding: 10px;
+                border-radius: 20px;
+                border: none;
+            }
+            .header .profile {
+                display: flex;
+                align-items: center;
+            }
+            .header .profile img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .content {
+                margin-left: 200px;
+                padding: 20px;
+            }
+            .content h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .card {
+                background-color:#0a124b;
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .card img {
+                width: 50px;
+                margin-bottom: 10px;
+            }
+            .card.light {
+                background-color: #e3f2fd;
+                color: black;
+            }
+            .card.light img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+            .card .btn {
+                background-color:#0a124b;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .card .btn:hover {
+                background-color:#0a124b;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .grid .card {
+                height: 150px;
+            }
+            .grid .card.light {
+                height: auto;
+            }
+    </style>
+    </head>
+    <body>
+    <div class="sidebar">
+    <img alt="Menu Icon" height="30" src="ak.jpeg" style="height:60px;width:50px"/>
+    <a  href="dash.html" style="width:160px;height:35px">
+        <br>
+        
+        DASHBOARD
+    </a>
+    <a href="#">
+        SELL
+    </a>
+    <a href="orderdetails.html">
+        CUSTOMERS
+    </a>
+    <a href="pro2.html">
+        MARKETPLACE
+    </a>
+    <a href="ORDER.HTML">
+        ORDERS
+    </a>
+    <a href="help.html">
+        HELP
+    </a>
+    <a href="orderdetails.html">
+        PAYMENT
+    </a>
+    </div>
+    <div class="header">
+    <div class="logo">
+        <h1>
+        ECOMART
+        </h1>
+    </div>
+    <input class="search-bar" placeholder="Search" type="text" style="width:500px"/>
+    <div class="profile">
+        <img alt="Profile Picture" height="40" src="hmm.jpeg" width="40px"/>
+        <div>
+        <p>
+        Asad
+        </p>
+        <p>
+        asad@gmail.com
+        </p>
+        </div>
+    </div>
+    </div>
+    <div class="content">
+    <h1>
+        Welcome, Asad!
+    </h1>
+    <div class="grid">
+        <div class="card">
+        <img alt="Sales Icon" height="50" src="salessss.png" width="70"/>
+        <h2>
+        Sales ordered
+        </h2>
+        <p>
+        39
+        </p>
+        </div>
+        <div class="card">
+        <img alt="Marketplaces Icon" height="50" src="markeot.jpeg" width="70"/>
+        <h2>
+        Marketplaces
+        </h2>
+        <p>
+        2
+        </p>
+        </div>
+        <div class="card">
+        <img alt="Today's Sale Icon" height="50" src="active copy.jpeg" width="70"/>
+        <h2>
+        Today's Sale
+        </h2>
+        <p>
+        1300 units
+        </p>
+        </div>
+        <div class="card">
+        <img alt="Account Health Icon" height="50" src="heath.jpeg" width="50"/>
+        <h2>
+        Account Health
+        </h2>
+        <p>
+        ★★★★★
+        </p>
+        </div>
+        <div class="card light">
+        <h2>
+        Create new Listing
+        </h2>
+        <p>
+        <a href="addproduct.html">+ Add New Product</a>
+        </p>
+        </div>
+        <div class="card light">
+        <h2>
+        News
+        </h2>
+        <p>
+        Aug 01, 2023
+        </p>
+        <p>
+        Preparing Service Provider Program update Read more
+        </p>
+        <p>
+        Aug 01, 2023
+        </p>
+        <p>
+        New updates from Sellerboard <a href="#">Learn more</a>
+        </p>
+        </div>
+        <div class="card light">
+        <h2>
+        Match Featured price
+        </h2>
+        <p>
+        Suggested price ₹ 1250
+        </p>
+        <p>
+        Price + Shipping ₹ 1250 + 35
+        </p>
+        <p>
+        Current offers 3
+        </p>
+        <p>
+        Your Price ₹ 1285
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button class="btn">
+        Update price
+        </button>
+        </div>
+        <div class="card light">
+        <h2>
+        Promote with coupons
+        </h2>
+        <img alt="Promote with coupons image" height="150" src="coupons.jpeg" width="100"/>
+        <p>
+        Merchandise your product with coupon badging
+        </p>
+        <button class="btn">
+        Create Coupon
+        </button>
+        </div>
+        <div class="card light">
+        <h2>
+        Deposit Method
+        </h2>
+        <p>
+        Add new deposit Method
+        </p>
+        <img alt="Deposit Method image" height="150" src="depsoit.jpeg" width="100"/>
+        <button class="btn">
+        Change Deposit Method
+        </button>
+        </div>
+        <div class="card light">
+        <h2>
+        Tutorials
+        </h2>
+        <p>
+        Learn how to sell
+        </p>
+        <img alt="Tutorials image" height="150" src="111.jpeg" width="100"/>
+        <button class="btn">
+            Tutorials 
+        </button>
+        </div>
+        <div class="card light">
+        <h2>
+        Logistics
+        </h2>
+        <p>
+        Manage Logistics
+        </p>
+        <img alt="Logistics image" height="150" src="logistics.jpeg" width="100"/>
+        <button class="btn">
+            Logistics
+        </button>
+        </div>
+    </div>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Interface</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d7f0f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            background-color: #001f6b;
+            color: white;
+            display: inline-block;
+            padding: 15px 50px;
+            border-radius: 8px;
+        }
+        .profile {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .profile-left {
+            background-color: #001f6b;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 30%;
+        }
+        .profile-left img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .profile-left h2 {
+            margin-top: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info div {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info i {
+            margin-right: 10px;
+        }
+        .profile-right {
+            display: flex;
+            justify-content: space-between;
+            width: 65%;
+        }
+        .info-box {
+            background-color: #001f6b;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-right: 40px;
+            width: 48%;
+            border-radius: 20px;
+        }
+        .form-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            width: 48%;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        .address-box {
+            background-color: #001f6b;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 30%;
+        }
+        .update-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .update-btn button {
+            background-color: #001f6b;
+            color: white;
+            padding: 10px 40px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .update-btn button:hover {
+            background-color: #003080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Profile</h1>
+        </div>
+        <div class="profile">
+            <div class="profile-left">
+                <img src="hmm.jpeg" alt="Profile Picture">
+                <h2 id="profile-name">Asad Ahmad</h2>
+                <div class="contact-info">
+                    <div><i class="fa fa-envelope"></i> <span id="profile-email">asadlw@gmail.com</span></div>
+                    <div><i class="fa fa-phone"></i> <span id="profile-phone">+916388500224</span></div>
+                    <div><i class="fa fa-map-marker"></i> <span id="profile-location">Gurugram, Haryana, India</span></div>
+                </div>
+            </div>
+            <div class="profile-right">
+                <div class="info-box">
+                    <h3>Investment</h3>
+                    <p>₹ 4,80,000</p>
+                </div>
+                <div class="info-box">
+                    <h3>Earnings</h3>
+                    <p>₹ 11,75,000</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" value="">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" value="">
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-group">
+                <label for="phone-number">Phone Number</label>
+                <input type="text" id="phone-number" value="">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="">
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" value="">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" id="country" value="">
+            </div>
+        </div>
+        <div class="address-box">
+            <h3>Address</h3>
+            <p id="profile-address">Sector 15, near ABC mall, Gurugram, Haryana, India</p>
+        </div>
+        <div class="update-btn">
+            <button id="update-button">Update</button>
+        </div>
+    </div>
+
+    <script>
+        const email = "asadlw@gmail.com"; // Replace with dynamic email
+
+        // Fetch user data from the backend
+        async function fetchUserProfile() {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/profile/${email}`);
+                const user = response.data;
+
+                document.getElementById("first-name").value = user.firstName;
+                document.getElementById("last-name").value = user.lastName;
+                document.getElementById("phone-number").value = user.phone;
+                document.getElementById("email").value = user.email;
+                document.getElementById("city").value = user.city || "";
+                document.getElementById("country").value = user.country || "";
+                document.getElementById("profile-name").innerText = `${user.firstName} ${user.lastName}`;
+                document.getElementById("profile-email").innerText = user.email;
+                document.getElementById("profile-phone").innerText = user.phone;
+                document.getElementById("profile-location").innerText = user.city ? `${user.city}, ${user.country}` : "";
+                document.getElementById("profile-address").innerText = user.address || "No Address Provided";
+            } catch (error) {
+                console.error("Error fetching user profile:", error);
+            }
+        }
+
+        // Update user profile
+        document.getElementById("update-button").addEventListener("click", async () => {
+            const updatedData = {
+                firstName: document.getElementById("first-name").value,
+                lastName: document.getElementById("last-name").value,
+                phone: document.getElementById("phone-number").value,
+                email: document.getElementById("email").value,
+                city: document.getElementById("city").value,
+                country: document.getElementById("country").value,
+                address: document.getElementById("profile-address").innerText,
+            };
+
+            try {
+                await axios.put(`http://localhost:5000/api/profile/${email}`, updatedData);
+                alert("Profile updated successfully!");
+                fetchUserProfile(); // Refresh the profile display
+            } catch (error) {
+                console.error("Error updating profile:", error);
+                alert("Failed to update profile.");
+            }
+        });
+
+        // Initialize the profile on page load
+        fetchUserProfile();
+    </script>
+</body>
+</html>
